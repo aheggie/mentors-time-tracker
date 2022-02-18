@@ -1,0 +1,356 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+:root {
+  /* primary colors */
+  --main-card: hsl(246, 80%, 60%);
+  --work: hsl(15, 100%, 70%);
+  --play: hsl(195, 74%, 62%);
+  --study: hsl(348, 100%, 68%);
+  --exercise: hsl(145, 58%, 55%);
+  --social: hsl(264, 64%, 52%);
+  --self-care: hsl(43, 84%, 65%);
+  /* neutrals */
+  --white-text: white;
+  --body-bg: hsl(226, 43%, 10%);
+  --card-bg: hsl(235, 46%, 20%);
+  --card-bg-hover: hsl(235, 46%, 23%);
+  --past-week-information: hsl(236, 100%, 87%);
+  --nav-link: hsl(235, 45%, 61%);
+
+  /* CARD DIMENSIONS */
+  --desktop-card-width: 255px;
+  --desktop-card-height: 240px;
+  --desktop-card-gutter: 30px;
+
+  --top-accent-height: 60px;
+
+  --card-border-radius: 12px;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: var(--body-bg);
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* overflow-y: hidden; */
+}
+
+/* mobile breakpoint 375px */
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--desktop-card-width) * 4 + var(--desktop-card-gutter) * 3);
+  height: calc(var(--desktop-card-gutter) + var(--desktop-card-height) * 2);
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: space-between;
+  gap: var(--desktop-card-gutter);
+}
+
+.usercard {
+  display: flex;
+  color: var(--white-text);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--desktop-card-width);
+  height: calc(var(--desktop-card-gutter) + var(--desktop-card-height) * 2);
+}
+
+.usercard__userinfo {
+  background-color: var(--main-card);
+  width: 100%;
+  flex: 2;
+  z-index: 2;
+  margin-bottom: calc(var(--card-border-radius) * -2);
+  border-radius: var(--card-border-radius);
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.usercard__avatarimg {
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 34%;
+  margin-bottom: 45px;
+}
+
+.usercard__reportfor {
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  color: var(--past-week-information);
+  margin-bottom: 5px;
+}
+
+.usercard__name {
+  font-weight: 300;
+  font-size: 36px;
+  letter-spacing: 0.2px;
+}
+
+.usercard__navarea {
+  background-color: var(--card-bg);
+  width: 100%;
+  height: calc(var(--desktop-card-height) - var(--top-accent-height));
+  border-bottom-left-radius: var(--card-border-radius);
+  border-bottom-right-radius: var(--card-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 25px 8px;
+}
+
+.usercard__navlist {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.usercard__navitem {
+  color: var(--nav-link);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.usercard__navitem:hover,
+.usercard__navitem--active {
+  color: var(--white-text);
+}
+
+.card {
+  display: flex;
+  color: var(--white-text);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--desktop-card-width);
+  height: var(--desktop-card-height);
+}
+
+.card__topaccent {
+  width: 100%;
+  height: var(--top-accent-height);
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  position: relative;
+  overflow: hidden;
+}
+
+.card--work .card__topaccent {
+  background-color: var(--work);
+}
+
+.card--play .card__topaccent {
+  background-color: var(--play);
+}
+
+.card--study .card__topaccent {
+  background-color: var(--study);
+}
+
+.card--exercise .card__topaccent {
+  background-color: var(--exercise);
+}
+
+.card--social .card__topaccent {
+  background-color: var(--social);
+}
+
+.card--self-care .card__topaccent {
+  background-color: var(--self-care);
+}
+
+.card__topaccentimg {
+  position: absolute;
+  top: -12px;
+  right: 15px;
+}
+
+/* this is a special adjustment, all the other topaccentimgs line up correctly with the above adjustments */
+
+.card--exercise .card__topaccentimg {
+  top: 0px;
+}
+
+.card__maincard {
+  background-color: var(--card-bg);
+  width: 100%;
+  flex: 2;
+  margin-top: calc(var(--card-border-radius) * -1);
+  padding: 25px 25px 35px;
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  border-bottom-left-radius: var(--card-border-radius);
+  border-bottom-right-radius: var(--card-border-radius);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.card__maincard:hover {
+  background-color: var(--card-bg-hover);
+}
+
+.card__titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__title {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
+
+.card__menubutton {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.card__ellipsisicon {
+  transform: scale(0.8);
+}
+
+.card__ellipsisicon:hover {
+  transform: scale(1);
+}
+
+.card__stats-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__hours {
+  font-weight: 300;
+  font-size: 56px;
+}
+
+.card__pastinfo {
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  color: var(--past-week-information);
+}
+
+@media (max-width: 500px) {
+  .body {
+    /* padding-top: 50px; */
+    /* display: block; */
+    /* padding-bottom: 200px; */
+    /* height: auto; */
+    /* justify-content: flex-end; */
+    /* min-height: 0; */
+  }
+
+  :root {
+    --desktop-card-width: 340px;
+    --desktop-card-height: 200px;
+    --top-accent-height: 50px;
+  }
+  .cards-container {
+    margin-top: 200px;
+    height: 100%;
+    /* min-height: 0; */
+    /* height: calc(
+      var(--desktop-card-height) * 7 + 20px + var(--desktop-card-gutter) * 6
+    ); */
+    /* min-height: 100%; */
+    width: auto;
+    flex-wrap: nowrap;
+  }
+
+  .usercard {
+    min-height: calc(var(--desktop-card-height) + 20px);
+  }
+
+  .usercard__userinfo {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-right: 0px;
+  }
+
+  .usercard__avatarimg {
+    width: 23%;
+    margin-bottom: 0;
+  }
+
+  .usercard__reportfor {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .usercard__name {
+    font-size: 26px;
+    margin-top: 8px;
+  }
+
+  .usercard__navarea {
+    height: 100px;
+    padding-top: 50px;
+  }
+
+  .usercard__navlist {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .usercard__navitem {
+    font-size: 20px;
+  }
+
+  .card__maincard {
+    padding: 25px;
+  }
+
+  .card__title {
+    font-size: 20px;
+  }
+
+  .card__ellipsisicon {
+    transform: scale(1.2);
+  }
+
+  .card__ellipsisicon:hover {
+    transform: scale(1.4);
+  }
+
+  .card__stats-container {
+    margin-top: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card__hours {
+    font-size: 36px;
+  }
+
+  .card__pastinfo {
+    font-size: 16px;
+  }
+}
