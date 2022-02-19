@@ -1,37 +1,17 @@
+import Card from "./Card";
 import UserCard from "./UserCard";
 
 const App = () => (
   <>
     <UserCard />
-    <div class="card card--work">
-      <div class="card__topaccent">
-        <img
-          src="./img/icon-work.svg"
-          alt="accent icon"
-          class="card__topaccentimg"
-        />
-      </div>
-      <div class="card__maincard">
-        <div class="card__titlebar">
-          <h2 class="card__title">Work</h2>
-          <button class="card__menubutton">
-            <img
-              src="./img/icon-ellipsis.svg"
-              alt="ellipsis icon"
-              class="card__ellipsisicon"
-            />
-          </button>
-        </div>
-        <div class="card__stats-container">
-          <h3 class="card__hours">10hrs</h3>
-          <small class="card__pastinfo">
-            Last <span class="card__pasttimeperiod">Week</span> -
-            <span class="card__pasthours">8hrs</span>
-          </small>
-        </div>
-      </div>
-    </div>
-    <div class="card card--play">
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+
+    {/* <div class="card card--play">
       <div class="card__topaccent">
         <img
           src="./img/icon-work.svg"
@@ -170,7 +150,7 @@ const App = () => (
           </small>
         </div>
       </div>
-    </div>
+    </div> */}
   </>
 );
 
