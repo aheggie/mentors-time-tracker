@@ -1,19 +1,15 @@
-const Card = () => (
-  <div className="card card--work">
+const Card = ({ title, modifierClass, imgFile }) => (
+  <div className={`card ${modifierClass}`}>
     <div className="card__topaccent">
-      <img
-        src="./img/icon-work.svg"
-        alt="accent icon"
-        className="card__topaccentimg"
-      />
+      <img src={`./img/${imgFile}`} alt="" className="card__topaccentimg" />
     </div>
     <div className="card__maincard">
       <div className="card__titlebar">
-        <h2 className="card__title">Work</h2>
+        <h2 className="card__title">{title}</h2>
         <button className="card__menubutton">
           <img
             src="./img/icon-ellipsis.svg"
-            alt="ellipsis icon"
+            alt=""
             className="card__ellipsisicon"
           />
         </button>
