@@ -5,8 +5,7 @@ import data from "./data.json";
 export const HoursContext = createContext();
 
 const HoursStateProvider = ({ children }) => {
-  const [currentTimeSeries, setTimeSeries] = useState("hours");
-  console.log("hello in provider", data);
+  const [currentTimeSeries, setTimeSeries] = useState(data);
 
   const updateTime = () => setTimeSeries("days");
 
