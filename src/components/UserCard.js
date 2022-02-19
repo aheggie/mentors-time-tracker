@@ -5,7 +5,6 @@ const UserCard = () => {
   const { currentTimeSeries, updateTime } = useContext(HoursContext);
 
   console.log(currentTimeSeries);
-
   return (
     <div className="usercard">
       <div className="usercard__userinfo">
@@ -22,7 +21,13 @@ const UserCard = () => {
       <div className="usercard__navarea">
         <ul className="usercard__navlist">
           <li className="usercard__navitem">Daily</li>
-          <li className="usercard__navitem usercard__navitem--active">
+          <li
+            className="usercard__navitem usercard__navitem--active"
+            onClick={() => {
+              updateTime();
+              console.log(currentTimeSeries);
+            }}
+          >
             Weekly
           </li>
           <li className="usercard__navitem">Monthly</li>
