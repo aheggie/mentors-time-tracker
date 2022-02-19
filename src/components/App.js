@@ -1,26 +1,9 @@
+import UserCard from "./UserCard";
+
 const App = () => (
   <>
     <div class="cards-container">
-      <div class="usercard">
-        <div class="usercard__userinfo">
-          <img
-            src="./img/image-jeremy.png"
-            alt=""
-            class="usercard__avatarimg"
-          />
-          <div class="usercard__name-container">
-            <small class="usercard__reportfor">Report For</small>
-            <h1 class="usercard__name">Jeremy Robson</h1>
-          </div>
-        </div>
-        <div class="usercard__navarea">
-          <ul class="usercard__navlist">
-            <li class="usercard__navitem">Daily</li>
-            <li class="usercard__navitem usercard__navitem--active">Weekly</li>
-            <li class="usercard__navitem">Monthly</li>
-          </ul>
-        </div>
-      </div>
+      <UserCard />
       <div class="card card--work">
         <div class="card__topaccent">
           <img
@@ -52,14 +35,14 @@ const App = () => (
       <div class="card card--play">
         <div class="card__topaccent">
           <img
-            src="./img/icon-play.svg"
+            src="./img/icon-work.svg"
             alt="accent icon"
             class="card__topaccentimg"
           />
         </div>
         <div class="card__maincard">
           <div class="card__titlebar">
-            <h2 class="card__title">Work</h2>
+            <h2 class="card__title">Plork</h2>
             <button class="card__menubutton">
               <img
                 src="./img/icon-ellipsis.svg"
