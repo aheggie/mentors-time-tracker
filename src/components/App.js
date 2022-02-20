@@ -4,21 +4,25 @@ import UserCard from "./UserCard";
 const App = () => (
   <>
     <UserCard />
-    <Card title="Work" modifierClass="card--work" imgFile="icon-work.svg" />
+    <Card cardName="work" modifierClass="card--work" imgFile="icon-work.svg" />
     <Card
-      title="Exercise"
+      cardName="exercise"
       modifierClass="card--exercise"
       imgFile="icon-exercise.svg"
     />
-    <Card title="Play" modifierClass="card--play" imgFile="icon-play.svg" />
+    <Card cardName="play" modifierClass="card--play" imgFile="icon-play.svg" />
     <Card
-      title="Social"
+      cardName="social"
       modifierClass="card--social"
       imgFile="icon-social.svg"
     />
-    <Card title="Study" modifierClass="card--study" imgFile="icon-study.svg" />
     <Card
-      title="Self Care"
+      cardName="study"
+      modifierClass="card--study"
+      imgFile="icon-study.svg"
+    />
+    <Card
+      cardName="self care"
       modifierClass="card--self-care"
       imgFile="icon-self-care.svg"
     />

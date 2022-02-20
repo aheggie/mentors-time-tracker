@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { HoursContext } from "../providers/HoursStateProvider";
 
-const Card = ({ title, modifierClass, imgFile }) => {
+const Card = ({ cardName, modifierClass, imgFile }) => {
   const { processedTimeSeriesData } = useContext(HoursContext);
 
   console.log(processedTimeSeriesData);
@@ -12,7 +12,7 @@ const Card = ({ title, modifierClass, imgFile }) => {
       </div>
       <div className="card__maincard">
         <div className="card__titlebar">
-          <h2 className="card__title">{title}</h2>
+          <h2 className="card__title">{cardName}</h2>
           <button className="card__menubutton">
             <img
               src="./img/icon-ellipsis.svg"
