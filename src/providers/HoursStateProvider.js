@@ -39,7 +39,7 @@ const HoursStateProvider = ({ children }) => {
       value={{
         currentTimeSeries: currentTimeSeries,
         updateTime: updateTimeSeries,
-        processedData: processedTimeSeriesData,
+        processedTimeSeriesData: processedTimeSeriesData,
       }}
     >
       {children}
