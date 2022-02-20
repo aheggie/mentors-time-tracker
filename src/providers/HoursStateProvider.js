@@ -8,7 +8,7 @@ const HoursStateProvider = ({ children }) => {
   const [currentTimeSeries, setTimeSeries] = useState("daily");
 
   const updateTimeSeries = (timeSeriesType) => {
-    if (["daily", "weekly", "monthly"].incluitdes(timeSeriesType)) {
+    if (["daily", "weekly", "monthly"].includes(timeSeriesType)) {
       setTimeSeries(timeSeriesType);
     } else {
       console.error(
