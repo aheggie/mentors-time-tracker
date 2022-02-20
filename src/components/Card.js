@@ -16,19 +16,21 @@ const toDashCase = (string) =>
     .split(" ")
     .join("-");
 
-const Card = ({ cardName, modifierClass, imgFile }) => {
+const Card = ({ cardName }) => {
   const { processedTimeSeriesData } = useContext(HoursContext);
   const cardTitle = toTitleCase(cardName);
   const cardDashCase = toDashCase(cardName);
   const cardModifierClass = `card--${cardDashCase}`;
   const cardImgPath = `icon-${cardDashCase}.svg`;
 
-  console.log(cardModifierClass === modifierClass);
-  console.log(cardImgPath === imgFile);
   return (
-    <div className={`card ${modifierClass}`}>
+    <div className={`card ${cardModifierClass}`}>
       <div className="card__topaccent">
-        <img src={`./img/${imgFile}`} alt="" className="card__topaccentimg" />
+        <img
+          src={`./img/${cardImgPath}`}
+          alt=""
+          className="card__topaccentimg"
+        />
       </div>
       <div className="card__maincard">
         <div className="card__titlebar">
