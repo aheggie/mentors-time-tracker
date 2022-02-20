@@ -17,11 +17,27 @@ const toDashCase = (string) =>
     .join("-");
 
 const Card = ({ cardName }) => {
-  const { processedTimeSeriesData } = useContext(HoursContext);
+  const { currentTimeSeries, processedTimeSeriesData } =
+    useContext(HoursContext);
   const cardTitle = toTitleCase(cardName);
   const cardDashCase = toDashCase(cardName);
   const cardModifierClass = `card--${cardDashCase}`;
   const cardImgPath = `icon-${cardDashCase}.svg`;
+
+  const { current, previous } = processedTimeSeriesData[cardName];
+
+  // this is sort of fussy reconjugation but it has to be done somewhere i think;
+  // This use of ternary conditionals is like switches in other languages but idk if enough js devs knows that pattern;
+  const pastTimeSeriesNoun =
+    currentTimeSeries === "daily"
+      ? "Yesterday"
+      : currentTimeSeries === "weekly"
+      ? "Last Week"
+      : currentTimeSeries === "monthly"
+      ? "Last Month"
+      : console.error(
+          "there is something wrong with the currenTimeSeries the Card components are receiving from HoursContext, check pastTimeSeriesNoun ternary conditional in Card.js component file"
+        );
 
   return (
     <div className={`card ${cardModifierClass}`}>
@@ -44,10 +60,12 @@ const Card = ({ cardName }) => {
           </button>
         </div>
         <div className="card__stats-container">
-          <h3 className="card__hours">10hrs</h3>
+          <h3 className="card__hours">{current}hrs</h3>
           <small className="card__pastinfo">
-            Last <span className="card__pasttimeperiod">Week</span> -
-            <span className="card__pasthours">8hrs</span>
+            {/* card__pasttimeperiod may no longer be needed - check css */}
+            <span className="card__pasttimeperiod">
+              {pastTimeSeriesNoun}
+            </span> - <span className="card__pasthours">{previous}hrs</span>
           </small>
         </div>
       </div>
