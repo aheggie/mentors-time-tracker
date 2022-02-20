@@ -6,7 +6,7 @@ const processTimesSeriesJSON = (timeSeriesJSON, selectedTimeSeriesType) =>
   timeSeriesJSON.reduce(
     (acc, { title, timeframes }) => ({
       ...acc,
-      [title]: timeframes[selectedTimeSeriesType],
+      [title.toLowerCase()]: timeframes[selectedTimeSeriesType],
     }),
     {}
   );
@@ -29,15 +29,17 @@ const HoursStateProvider = ({ children }) => {
     }
   };
 
-  // const processedData = processTimesSeriesJSON(data, currentTimeSeries);
+  const processedTimeSeriesData = processTimesSeriesJSON(
+    data,
+    currentTimeSeries
+  );
 
-  const subsidiaryData = `modified ${currentTimeSeries}`;
   return (
     <HoursContext.Provider
       value={{
         currentTimeSeries: currentTimeSeries,
         updateTime: updateTimeSeries,
-        subsidiaryData: subsidiaryData,
+        processedData: processedTimeSeriesData,
       }}
     >
       {children}

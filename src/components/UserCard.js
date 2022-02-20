@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { HoursContext } from "../providers/HoursStateProvider";
 
 const UserCard = () => {
-  const { currentTimeSeries, updateTime, subsidiaryData } =
+  const { currentTimeSeries, updateTime, processedData } =
     useContext(HoursContext);
 
-  console.log(subsidiaryData);
+  console.log(processedData);
   return (
     <div className="usercard">
       <div className="usercard__userinfo">
