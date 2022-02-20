@@ -2,6 +2,16 @@ import { useState, createContext } from "react";
 
 import data from "../data/data.json"; //eslint-disable-line no-unused-vars
 
+const processTimesSeriesJSON = (timeSeriesJSON, selectedTimeSeriesType) => {
+  timeSeriesJSON.reduce(
+    (acc, { title, timeframes }) => ({
+      ...acc,
+      [title]: timeframes[selectedTimeSeriesType],
+    }),
+    {}
+  );
+};
+
 export const HoursContext = createContext();
 
 const HoursStateProvider = ({ children }) => {
