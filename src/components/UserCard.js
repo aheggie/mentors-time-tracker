@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { HoursContext } from "../providers/HoursStateProvider";
 
 const UserCard = () => {
-  const { currentTimeSeries, updateTime } = useContext(HoursContext);
+  const { currentTimeSeries, updateTime, subsidiaryData } =
+    useContext(HoursContext);
 
-  console.log(currentTimeSeries);
+  console.log(subsidiaryData);
   return (
     <div className="usercard">
       <div className="usercard__userinfo">
@@ -24,7 +25,7 @@ const UserCard = () => {
           <li
             className="usercard__navitem usercard__navitem--active"
             onClick={() => {
-              updateTime();
+              updateTime("monthly");
               console.log(currentTimeSeries);
             }}
           >

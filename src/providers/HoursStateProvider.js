@@ -1,20 +1,29 @@
 import { useState, createContext } from "react";
 
-// move to data folder next
 import data from "../data/data.json";
 
 export const HoursContext = createContext();
 
 const HoursStateProvider = ({ children }) => {
-  const [currentTimeSeries, setTimeSeries] = useState(data);
+  const [currentTimeSeries, setTimeSeries] = useState("daily");
 
-  const updateTime = () => setTimeSeries("days");
+  const updateTimeSeries = (timeSeriesType) => {
+    if (["daily", "weekly", "monthly"].incluitdes(timeSeriesType)) {
+      setTimeSeries(timeSeriesType);
+    } else {
+      console.error(
+        `Error in call to updateTimeSeries, only "daily", "weekly" or "monthly" are valid 1th arguments`
+      );
+    }
+  };
 
+  const subsidiaryData = `modified ${currentTimeSeries}`;
   return (
     <HoursContext.Provider
       value={{
         currentTimeSeries: currentTimeSeries,
-        updateTime: updateTime,
+        updateTime: updateTimeSeries,
+        subsidiaryData: subsidiaryData,
       }}
     >
       {children}
