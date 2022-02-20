@@ -1,6 +1,7 @@
 import { useState, createContext } from "react";
 
-import data from "./data.json";
+// move to data folder next
+import data from "../data/data.json";
 
 export const HoursContext = createContext();
 
