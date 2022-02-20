@@ -1,16 +1,9 @@
-import { useContext } from "react";
-import { HoursContext } from "../providers/HoursStateProvider";
 import NavItem from "./NavItem";
 
 const UserCard = () => {
-  // const { currentTimeSeries, updateTime, processedTimeSeriesData } =
-  //   useContext(HoursContext);
-
-  // const setActiveClass = (liTimeSeries) =>
-  //   currentTimeSeries === liTimeSeries ? "usercard__navitem--active" : "";
-
   return (
     <div className="usercard">
+      {/* in a dynamic App this would be a component */}
       <div className="usercard__userinfo">
         <img
           src="./img/image-jeremy.png"
@@ -27,28 +20,6 @@ const UserCard = () => {
           <NavItem timeSeriesType="daily" />
           <NavItem timeSeriesType="weekly" />
           <NavItem timeSeriesType="monthly" />
-          {/* <li
-            className={`usercard__navitem ${setActiveClass("weekly")}`}
-            onClick={() => {
-              updateTime("weekly");
-            }}
-            onBlur={() => {
-              updateTime("weekly");
-            }}
-          >
-            Weekly
-          </li>
-          <li
-            className={`usercard__navitem ${setActiveClass("monthly")}`}
-            onClick={() => {
-              updateTime("monthly");
-            }}
-            onBlur={() => {
-              updateTime("monthly");
-            }}
-          >
-            Monthly
-          </li> */}
         </ul>
       </div>
     </div>
