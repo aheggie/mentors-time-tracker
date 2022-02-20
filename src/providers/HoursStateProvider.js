@@ -1,6 +1,6 @@
 import { useState, createContext } from "react";
 
-import data from "../data/data.json";
+import data from "../data/data.json"; //eslint-disable-line no-unused-vars
 
 export const HoursContext = createContext();
 
