@@ -1,6 +1,12 @@
 import { useContext } from "react";
 import { HoursContext } from "../providers/HoursStateProvider";
 
+const toTitleCase = (string) =>
+  string
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+
 const Card = ({ cardName, modifierClass, imgFile }) => {
   const { processedTimeSeriesData } = useContext(HoursContext);
 
@@ -12,7 +18,7 @@ const Card = ({ cardName, modifierClass, imgFile }) => {
       </div>
       <div className="card__maincard">
         <div className="card__titlebar">
-          <h2 className="card__title">{cardName}</h2>
+          <h2 className="card__title">{toTitleCase(cardName)}</h2>
           <button className="card__menubutton">
             <img
               src="./img/icon-ellipsis.svg"
