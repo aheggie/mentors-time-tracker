@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { HoursContext } from "../providers/HoursStateProvider";
+import NavItem from "./NavItem";
 
 const UserCard = () => {
-  const { currentTimeSeries, updateTime, processedTimeSeriesData } =
-    useContext(HoursContext);
+  // const { currentTimeSeries, updateTime, processedTimeSeriesData } =
+  //   useContext(HoursContext);
 
-  const setActiveClass = (liTimeSeries) =>
-    currentTimeSeries === liTimeSeries ? "usercard__navitem--active" : "";
+  // const setActiveClass = (liTimeSeries) =>
+  //   currentTimeSeries === liTimeSeries ? "usercard__navitem--active" : "";
 
-  console.log(processedTimeSeriesData);
   return (
     <div className="usercard">
       <div className="usercard__userinfo">
@@ -24,18 +24,10 @@ const UserCard = () => {
       </div>
       <div className="usercard__navarea">
         <ul className="usercard__navlist">
-          <li
-            className={`usercard__navitem ${setActiveClass("daily")}`}
-            onClick={() => {
-              updateTime("daily");
-            }}
-            onBlur={() => {
-              updateTime("daily");
-            }}
-          >
-            Daily
-          </li>
-          <li
+          <NavItem timeSeriesType="daily" />
+          <NavItem timeSeriesType="weekly" />
+          <NavItem timeSeriesType="monthly" />
+          {/* <li
             className={`usercard__navitem ${setActiveClass("weekly")}`}
             onClick={() => {
               updateTime("weekly");
@@ -56,7 +48,7 @@ const UserCard = () => {
             }}
           >
             Monthly
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
