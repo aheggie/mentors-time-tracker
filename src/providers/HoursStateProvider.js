@@ -2,7 +2,7 @@ import { useState, createContext } from "react";
 
 import data from "../data/data.json"; //eslint-disable-line no-unused-vars
 
-const processTimesSeriesJSON = (timeSeriesJSON, selectedTimeSeriesType) => {
+const processTimesSeriesJSON = (timeSeriesJSON, selectedTimeSeriesType) =>
   timeSeriesJSON.reduce(
     (acc, { title, timeframes }) => ({
       ...acc,
@@ -10,13 +10,15 @@ const processTimesSeriesJSON = (timeSeriesJSON, selectedTimeSeriesType) => {
     }),
     {}
   );
-};
 
 export const HoursContext = createContext();
 
 const HoursStateProvider = ({ children }) => {
+  // core state is simply the time series we are seeking - the atomic tag of this is the only fundamentally held state
+  // we
   const [currentTimeSeries, setTimeSeries] = useState("daily");
 
+  // this just provides some protection around updating state to only valid types
   const updateTimeSeries = (timeSeriesType) => {
     if (["daily", "weekly", "monthly"].includes(timeSeriesType)) {
       setTimeSeries(timeSeriesType);
@@ -26,6 +28,8 @@ const HoursStateProvider = ({ children }) => {
       );
     }
   };
+
+  // const processedData = processTimesSeriesJSON(data, currentTimeSeries);
 
   const subsidiaryData = `modified ${currentTimeSeries}`;
   return (
