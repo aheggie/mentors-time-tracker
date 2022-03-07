@@ -42,6 +42,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  /* test root div fix */
+  width: 100vw;
   /* overflow-y: hidden; */
 }
 
@@ -56,6 +58,9 @@ body {
   align-items: space-between;
   justify-content: space-between;
   gap: var(--desktop-card-gutter);
+  /* test css root element sizing fix */
+  /* overflow auto doesnt seem to work */
+  /* overflow: auto; */
 }
 
 .usercard {
@@ -255,7 +260,7 @@ body {
 }
 
 @media (max-width: 500px) {
-  .body {
+  body {
     /* padding-top: 50px; */
     /* display: block; */
     /* padding-bottom: 200px; */
